@@ -1,0 +1,88 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style = "text-align:center">
+	<h1>
+		Welcome to {{title}}!
+	</h1>
+
+	<div id="rawJson">
+		<div class="head">
+			<h2>
+				RAW JSON FORMAT
+			</h2>
+
+		</div>
+		<div class="body">
+			<p>
+				{{stringData(data)}}
+			</p>
+		</div>
+	</div>
+
+
+	<div id="post">
+		<div class="head">
+			<h2>CREATE</h2>
+		</div>
+		<div class="body">
+			<p>Name</p> <br>
+			<input id="name" type = "text" #nameInput placeholder="Name..."><br>
+			<p>Alter</p> <br>
+			<input id="alter" type = "number" #ageInput placeholder="Alter..."><br>
+			<button class="btn" (click) = "create({id: 0,name: nameInput.value, age: ageInput.value})">Create</button>
+		</div>
+	</div>
+
+
+	<div id="update">
+		<div class="head">
+			<h2>UPDATE</h2>
+		</div>
+		<div class="body">
+			<select id="updateSel" #selectElem (change)="selectUser(selectElem.value)">
+				<option disabled>Wähle User aus</option>
+				<option *ngFor="let d of getResponseData()">
+					{{d.id}} -- {{d.name}}
+				</option>
+			</select> <br>
+
+			<div *ngIf="selectedUser">
+				Name:
+				<input type = "text" value="{{selectedUser.name}}" #nameInput><br>
+				Alter:
+				<input type = "number" value="{{selectedUser.alter}}" #ageInput><br>
+				<button class="btn" (click)="update({id: selectedUser.id, name: nameInput.value, alter: ageInput.value})">Update</button>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="delete">
+		<div class="head">
+			<h2>DELETE</h2>
+		</div>
+		<div class="body">
+			<table id="delTable">
+				<thead>
+					<tr>
+						<th></th>
+						<th>id</th>
+						<th>name</th>
+						<th>alter</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor = "let d of getResponseData()">
+						<td><button id="delBtn" (click) = "delete(d.id)">Delete</button></td>
+						<td>{{d.id}}</td>
+						<td>{{d.name}}</td>
+						<td>{{d.alter}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+</div>
+
+
