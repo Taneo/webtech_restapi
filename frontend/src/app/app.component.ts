@@ -26,50 +26,30 @@ export class AppComponent implements OnInit{
     }
 
     /**
+     * AUFGABE 2
      * Daten über dataservice anhand einer id löschen
      * @param id Number
      */
     delete(id): void {
-        this.dataservice.delete(id).subscribe(
-            () => location.reload(), 
-            error => this.data = error
-        );
+
     }
 
     /**
+     * AUFGABE 3
      * Daten erschaffen über dataservice mit einem namen und dem alter
      * @param user Object
      */
     create(user) {
-        const _data = {
-            id: user.id,
-            name: user.name,
-            alter: user.age
-        };
 
-        console.log(_data.name, _data.alter);
-
-        this.dataservice.create(_data).subscribe(
-            () => location.reload(), 
-            error => this.data = error
-        );
     }
 
     /**
+     * AUFGABE 4
      * Daten updaten über dataservice mit einem user Objekt
      * @param user JSON
      */
     update(user) {
-        const _data = {
-            id: user.id,
-            name: user.name,
-            alter: user.alter
-        };
 
-        this.dataservice.update(_data).subscribe(
-            () => location.reload(), 
-            error => this.data = error
-        );
     }
 
     ngOnInit(): void {
