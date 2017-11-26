@@ -1,10 +1,10 @@
-#Aktuelle Webtechnologien: Tools und Frameworks Workshop
+# Aktuelle Webtechnologien: Frameworks und Tools Workshop
 
-###Worum geht das Projekt?
+### Worum geht das Projekt?
   Workshop für den Kurs Aktuelle Webtechnologien: Tools und Frameworks WS 17/18
   an der Beuth Hochschule für Technik Berlin bei Sven Spielvogel
  
-###Projektsetup
+### Projektsetup
 Zuerst die Nodekonsole öffnen (Am besten gleich 2). Dort gehen wir in den Projektordner in den Ordner
     
     \webtech_restapi\frontend
@@ -41,7 +41,7 @@ Nun solltet ihr beide Dienste gestartet haben. Die Seite erreicht ihr über
     
     http://localhost:4200
     
-###Wer arbeitet daran?
+### Wer arbeitet daran?
 *   Denny Schumann (s62373@beuth-hochschule.de)
 *   Jan Fromme (s61279@beuth-hochschule.de)
 *   Paul Venneklaas (s61276@beuth-hochschule.de)
