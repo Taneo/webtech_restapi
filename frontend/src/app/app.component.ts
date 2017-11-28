@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from './data.service';
+import { error } from 'selenium-webdriver';
 
 @Component({
     selector: 'app-root',
@@ -31,7 +32,10 @@ export class AppComponent implements OnInit{
      * @param id Number
      */
     delete(id): void {
-
+        this.dataservice.delete(id).subscribe(
+            () => location.reload(),
+            error => this.data = error
+        );
     }
 
     /**
@@ -40,17 +44,35 @@ export class AppComponent implements OnInit{
      * @param user Object
      */
     create(user) {
+        const _DATA = {
+            id: user.id,
+            name: user.name,
+            alter: user.alter
+        }
 
+        this.dataservice.create(_DATA).subscribe(
+            () => location.reload(), // nicht optimal
+            error => this.data = error
+        )
     }
 
     /**
      * AUFGABE 4
      * Daten updaten über dataservice mit einem user Objekt
-     * @param user JSON
+     * @param user Object
      */
     update(user) {
+        const _DATA = {
+            id: user.id,
+            name: user.name,
+            alter: user.alter
+        }
 
-    }
+        this.dataservice.update(_DATA).subscribe(
+            () => location.reload(),
+            error => this.data = error
+        )
+    } 
 
     ngOnInit(): void {
         this.getData();

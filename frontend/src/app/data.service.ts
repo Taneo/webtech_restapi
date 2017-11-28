@@ -30,27 +30,33 @@ export class DataService {
      * @returns {Observable<Object>}
      */
     delete(id) {
-        
+        const URL = this.dataUrl + id;
+        return this.http.delete(URL); 
     }
 
     /**
      * AUFGABE 3
      * Daten posten anhand des user Objekts über die RestAPI mittels der HTTP-Methode POST
-     * @param user JSON
+     * @param user Object
      * @returns {Observable<Object>}
      */
     create(user) {
-
+        return this.http.post(this.dataUrl,
+                              JSON.stringify(user), 
+                              {headers: this.headers});
     }
 
     /**
      * AUFGABE 4
      * Daten updaten anhand des user Objekts über die RestAPI mittels der HTTP-Methode PUT
-     * @param user JSON
+     * @param user Object
      * @returns {Observable<Object>}
      */
     update(user) {
-
+        const URL = this.dataUrl + user.id;
+        return this.http.put(URL, 
+                            JSON.stringify(user),
+                            {headers: this.headers});
     }
 
     /**---------------- END RELEVANT FOR WORKSHOP ----------------**/
